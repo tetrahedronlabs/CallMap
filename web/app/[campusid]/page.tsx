@@ -1,7 +1,6 @@
 import { supabase } from "@/lib/supabase/client";
 import { notFound } from "next/navigation";
 
-// eslint-disable-next-line @next/next/no-async-client-component
 export default async function Campus({
   params: { campusid },
 }: {
