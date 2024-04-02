@@ -36,8 +36,9 @@ export type Database = {
         }
         Relationships: []
       }
-      ucr_records: {
+      records: {
         Row: {
+          campus: string
           case_number: string | null
           date_occurred: string | null
           date_reported: string | null
@@ -53,6 +54,7 @@ export type Database = {
           time_occurred: string | null
         }
         Insert: {
+          campus: string
           case_number?: string | null
           date_occurred?: string | null
           date_reported?: string | null
@@ -68,6 +70,7 @@ export type Database = {
           time_occurred?: string | null
         }
         Update: {
+          campus?: string
           case_number?: string | null
           date_occurred?: string | null
           date_reported?: string | null
@@ -105,54 +108,6 @@ export type Database = {
           location?: string | null
           longitude?: number | null
           parsed_location?: string
-        }
-        Relationships: []
-      }
-      ucsd_records: {
-        Row: {
-          case_number: string | null
-          date_occurred: string | null
-          date_reported: string | null
-          disposition: string | null
-          incident: string | null
-          location: string | null
-          parsed_date_occurred: string | null
-          parsed_date_reported: string | null
-          parsed_location: string | null
-          parsed_time_occurred: string | null
-          record_id: string
-          summary: string | null
-          time_occurred: string | null
-        }
-        Insert: {
-          case_number?: string | null
-          date_occurred?: string | null
-          date_reported?: string | null
-          disposition?: string | null
-          incident?: string | null
-          location?: string | null
-          parsed_date_occurred?: string | null
-          parsed_date_reported?: string | null
-          parsed_location?: string | null
-          parsed_time_occurred?: string | null
-          record_id: string
-          summary?: string | null
-          time_occurred?: string | null
-        }
-        Update: {
-          case_number?: string | null
-          date_occurred?: string | null
-          date_reported?: string | null
-          disposition?: string | null
-          incident?: string | null
-          location?: string | null
-          parsed_date_occurred?: string | null
-          parsed_date_reported?: string | null
-          parsed_location?: string | null
-          parsed_time_occurred?: string | null
-          record_id?: string
-          summary?: string | null
-          time_occurred?: string | null
         }
         Relationships: []
       }

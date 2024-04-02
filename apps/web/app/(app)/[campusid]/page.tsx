@@ -7,5 +7,9 @@ export default async function Campus({
 }) {
   const campus = await getCampus(campusid);
 
+  if (!campus) {
+    return <div>Campus not found</div>;
+  }
+
   return <div>{campus.name}</div>;
 }

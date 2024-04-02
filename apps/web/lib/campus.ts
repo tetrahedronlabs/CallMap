@@ -1,5 +1,4 @@
 import { supabase } from "./supabase/client";
-import { notFound } from "next/navigation";
 
 export async function getCampus(campusid: string) {
   const { data: campus } = await supabase
@@ -8,7 +7,7 @@ export async function getCampus(campusid: string) {
     .match({ campus_id: campusid })
     .single();
   if (!campus) {
-    notFound();
+    return null;
   }
   return campus;
 }
