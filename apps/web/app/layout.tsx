@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/ui/sonner";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import type { Metadata } from "next";
@@ -17,6 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${GeistSans.className} ${GeistMono.variable}`}>
         {children}
+        <Toaster />
       </body>
     </html>
   );
