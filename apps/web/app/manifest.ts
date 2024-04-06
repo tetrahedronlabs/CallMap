@@ -11,4 +11,5 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#ffffff",
     //TODO: Add icons
   };
-}3
+}
+3;

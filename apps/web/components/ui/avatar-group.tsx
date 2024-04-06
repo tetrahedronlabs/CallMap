@@ -1,19 +1,21 @@
-import React from "react"
-import clsx from "clsx"
+import React from "react";
+import clsx from "clsx";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement> {
-  max: number
+  max: number;
 }
 
 const AvatarGroup = React.forwardRef<HTMLDivElement, AvatarGroupProps>(
   ({ className, children, max = 1, ...props }, ref) => {
-    const avatarItems = React.Children.toArray(children) as React.ReactElement[]
+    const avatarItems = React.Children.toArray(
+      children,
+    ) as React.ReactElement[];
 
     const handleMargin = (index: number) => {
-      return index * 10
-    }
+      return index * 10;
+    };
 
     const renderContent = React.useMemo(() => {
       return (
@@ -22,19 +24,19 @@ const AvatarGroup = React.forwardRef<HTMLDivElement, AvatarGroupProps>(
             return React.cloneElement(child, {
               className: clsx(
                 child.props.className,
-                "border-2 border-background"
+                "border-2 border-background",
               ),
               style: {
                 right: handleMargin(index),
                 ...child.props.style,
               },
-            })
+            });
           })}
           {avatarItems.length > max && (
             <div
               className={clsx(
                 "relative border-2 border-background h-10 w-10 flex items-center justify-center rounded-full bg-muted",
-                avatarItems[0].props.className
+                avatarItems[0].props.className,
               )}
               style={{ right: handleMargin(max) }}
             >
@@ -42,9 +44,9 @@ const AvatarGroup = React.forwardRef<HTMLDivElement, AvatarGroupProps>(
             </div>
           )}
         </>
-      )
+      );
       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [max])
+    }, [max]);
 
     return (
       <div
@@ -54,10 +56,10 @@ const AvatarGroup = React.forwardRef<HTMLDivElement, AvatarGroupProps>(
       >
         {renderContent}
       </div>
-    )
-  }
-)
+    );
+  },
+);
 
-AvatarGroup.displayName = "AvatarGroup"
+AvatarGroup.displayName = "AvatarGroup";
 
-export { AvatarGroup }
+export { AvatarGroup };

@@ -21,6 +21,6 @@ export const createClient = (cookieStore: ReturnType<typeof cookies>) => {
           } catch (error) {}
         },
       },
-    }
+    },
   );
 };
