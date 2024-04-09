@@ -11,3 +11,15 @@ export async function getRecord(recordid: string) {
   }
   return record;
 }
+
+export async function getCoordinate(parsedlocation: string) {
+  const { data: location } = await supabase
+    .from("ucsd_locations")
+    .select()
+    .match({ parsed_location: parsedlocation })
+    .single();
+  if (!location) {
+    return null;
+  }
+  return location;
+}

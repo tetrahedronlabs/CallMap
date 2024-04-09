@@ -1,7 +1,5 @@
-"use client";
-
 import { SinglePointMap } from "@/components/maps/single-point";
-import { getRecord } from "@/lib/record";
+import { getRecord, getCoordinate } from "@/lib/record";
 
 export default async function Campus({
   params: { recordid },
@@ -9,6 +7,7 @@ export default async function Campus({
   params: { recordid: string };
 }) {
   const record = await getRecord(recordid);
+  const location = await getCoordinate(record!.parsed_location!);
 
   if (!record) {
     return <div>Record not found</div>;
@@ -16,11 +15,13 @@ export default async function Campus({
 
   return (
     <>
-      <SinglePointMap
-        latitude={32.88121374}
-        longitude={-117.23759}
-        zoom={15.5}
-      />
+      <div className="w-full h-[36rem]">
+        <SinglePointMap
+          latitude={location!.latitude!}
+          longitude={location!.longitude!}
+          zoom={15.5}
+        />
+      </div>
     </>
   );
 }

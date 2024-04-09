@@ -2,6 +2,7 @@
 
 import { Map, Marker, NavigationControl } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+import { Skeleton } from "../ui/skeleton";
 
 const maxBoundsDistance = 0.2;
 
@@ -15,7 +16,7 @@ export const SinglePointMap = ({
   zoom: number;
 }) => {
   return (
-    <div className="h-64 w-64 flex ">
+    <div className="w-full h-full">
       <Map
         mapStyle="mapbox://styles/mapbox/standard"
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN!}
@@ -34,4 +35,8 @@ export const SinglePointMap = ({
       </Map>
     </div>
   );
+};
+
+export const SinglePointMapSkeleton = () => {
+  return <Skeleton className="h-full w-full" />;
 };
