@@ -9,7 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const campuses = response?.map((campus) => {
     return { url: `${baseurl}/${campus?.campus_id}`, lastModified: new Date() };
   });
-  
+
   return [
     {
       url: `${baseurl}/`,
