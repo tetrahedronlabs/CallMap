@@ -14,7 +14,7 @@ export async function getRecord(recordid: string) {
 
 export async function getCoordinate(parsedlocation: string) {
   const { data: location } = await supabase
-    .from("ucsd_locations")
+    .from("locations")
     .select()
     .match({ parsed_location: parsedlocation })
     .single();

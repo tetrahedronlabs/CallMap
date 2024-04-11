@@ -36,6 +36,33 @@ export type Database = {
         };
         Relationships: [];
       };
+      locations: {
+        Row: {
+          campus: string | null;
+          count: number | null;
+          latitude: number | null;
+          location: string | null;
+          longitude: number | null;
+          parsed_location: string;
+        };
+        Insert: {
+          campus?: string | null;
+          count?: number | null;
+          latitude?: number | null;
+          location?: string | null;
+          longitude?: number | null;
+          parsed_location: string;
+        };
+        Update: {
+          campus?: string | null;
+          count?: number | null;
+          latitude?: number | null;
+          location?: string | null;
+          longitude?: number | null;
+          parsed_location?: string;
+        };
+        Relationships: [];
+      };
       records: {
         Row: {
           campus: string;
@@ -84,30 +111,6 @@ export type Database = {
           record_id?: string;
           summary?: string | null;
           time_occurred?: string | null;
-        };
-        Relationships: [];
-      };
-      ucsd_locations: {
-        Row: {
-          count: number | null;
-          latitude: number | null;
-          location: string | null;
-          longitude: number | null;
-          parsed_location: string;
-        };
-        Insert: {
-          count?: number | null;
-          latitude?: number | null;
-          location?: string | null;
-          longitude?: number | null;
-          parsed_location: string;
-        };
-        Update: {
-          count?: number | null;
-          latitude?: number | null;
-          location?: string | null;
-          longitude?: number | null;
-          parsed_location?: string;
         };
         Relationships: [];
       };
