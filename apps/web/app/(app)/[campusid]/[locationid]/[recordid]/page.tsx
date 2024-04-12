@@ -3,18 +3,16 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getRecord, getCoordinate } from "@/lib/record";
 
-export default async function Campus({
-  params: { recordid },
+export default async function Record({
+  params: { campusid, locationid, recordid },
 }: {
-  params: { recordid: string };
+  params: { campusid: string; locationid: string; recordid: string };
 }) {
-  const record = await getRecord(recordid);
-  const location = await getCoordinate(record!.parsed_location!);
-
+  const record = await getRecord(campusid, locationid, recordid);
   if (!record) {
     return <div>Record not found</div>;
   }
-
+  const location = await getCoordinate(record!.parsed_location!);
   return (
     <>
       <div className="flex h-screen items-center justify-center max-w-screen-xl mx-auto">
