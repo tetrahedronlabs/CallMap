@@ -551,10 +551,10 @@
   dependencies:
     "@supabase/node-fetch" "^2.6.14"
 
-"@supabase/functions-js@2.2.2":
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/@supabase/functions-js/-/functions-js-2.2.2.tgz#53a22d9f1fc770d96c9ad8c9dba5eda339b305f5"
-  integrity sha512-sJGq1nludmi7pY/fdtCpyY/pYonx7MfHdN408bqb736guWcVI1AChYVbI4kUM978EuOE4Ci6l7bUudfGg07QRw==
+"@supabase/functions-js@2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@supabase/functions-js/-/functions-js-2.3.0.tgz#1aeef35cfb5ea608e5ac23e8b1f0614ffe3008a4"
+  integrity sha512-GPXzSl4MXdc0P7q+TvE8XgaPdvGBeAJ0p6AN0tbKcezpkp32mpsDf58JXaWOJGyiWSVJn6z1W73eKxf6NZNaFA==
   dependencies:
     "@supabase/node-fetch" "^2.6.14"
 
@@ -565,17 +565,17 @@
   dependencies:
     whatwg-url "^5.0.0"
 
-"@supabase/postgrest-js@1.15.0":
-  version "1.15.0"
-  resolved "https://registry.yarnpkg.com/@supabase/postgrest-js/-/postgrest-js-1.15.0.tgz#2218c8885a596835b85971f09ea87d1d8353c0c5"
-  integrity sha512-U4bwBOrhsXWqDjZiYNbVqMBtRGgIIYE0kE5ZNSwsIbeBWfr/UxOMrnkIQUBGIZRhpYW/tw1WnTdRl1AGNyaxcw==
+"@supabase/postgrest-js@1.15.2":
+  version "1.15.2"
+  resolved "https://registry.yarnpkg.com/@supabase/postgrest-js/-/postgrest-js-1.15.2.tgz#c0a725706e3d534570d014d7b713cea12553ab98"
+  integrity sha512-9/7pUmXExvGuEK1yZhVYXPZnLEkDTwxgMQHXLrN5BwPZZm4iUCL1YEyep/Z2lIZah8d8M433mVAUEGsihUj5KQ==
   dependencies:
     "@supabase/node-fetch" "^2.6.14"
 
-"@supabase/realtime-js@2.9.3":
-  version "2.9.3"
-  resolved "https://registry.yarnpkg.com/@supabase/realtime-js/-/realtime-js-2.9.3.tgz#f822401aed70883dca5d538179b11089d6d1b6ed"
-  integrity sha512-lAp50s2n3FhGJFq+wTSXLNIDPw5Y0Wxrgt44eM5nLSA3jZNUUP3Oq2Ccd1CbZdVntPCWLZvJaU//pAd2NE+QnQ==
+"@supabase/realtime-js@2.9.4":
+  version "2.9.4"
+  resolved "https://registry.yarnpkg.com/@supabase/realtime-js/-/realtime-js-2.9.4.tgz#fcadfc167aad8e3798d7188f1c1506326b051bf0"
+  integrity sha512-wdq+2hZpgw0r2ldRs87d3U08Y8BrsO1bZxPNqbImpYshAEkusDz4vufR8KaqujKxqewmXS6YnUhuRVdvSEIKCA==
   dependencies:
     "@supabase/node-fetch" "^2.6.14"
     "@types/phoenix" "^1.5.4"
@@ -597,16 +597,16 @@
   dependencies:
     "@supabase/node-fetch" "^2.6.14"
 
-"@supabase/supabase-js@^2.42.0":
-  version "2.42.0"
-  resolved "https://registry.yarnpkg.com/@supabase/supabase-js/-/supabase-js-2.42.0.tgz#9e739cd96989acb0cbaab16da3717400b2ac92fa"
-  integrity sha512-1PDqJiA4iG45w3AAu6xkccJ3wPqlGJUoz9CPhScRLLTStxhewYhz0mjryTpXz1kgtNHdUAsirALreezn8UZMjA==
+"@supabase/supabase-js@^2.42.4":
+  version "2.42.4"
+  resolved "https://registry.yarnpkg.com/@supabase/supabase-js/-/supabase-js-2.42.4.tgz#1d0cdf8f8d3a1832a74fbf7e5b0ecc148a5a984c"
+  integrity sha512-tRn3wloKnnFdmEr3O2VIaxqzKACpyJ3ymLDmeq0V5lvhkJ+B4VH+QmDrnBbJJUkO2t+IHg65j5jombZxU4yMyw==
   dependencies:
     "@supabase/auth-js" "2.63.0"
-    "@supabase/functions-js" "2.2.2"
+    "@supabase/functions-js" "2.3.0"
     "@supabase/node-fetch" "2.6.15"
-    "@supabase/postgrest-js" "1.15.0"
-    "@supabase/realtime-js" "2.9.3"
+    "@supabase/postgrest-js" "1.15.2"
+    "@supabase/realtime-js" "2.9.4"
     "@supabase/storage-js" "2.5.5"
 
 "@swc/counter@^0.1.3":
