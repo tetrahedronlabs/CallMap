@@ -27,4 +27,7 @@ export default defineConfig({
 		}),
 		tailwind({ applyBaseStyles: false }),
 	],
+	build: {
+		assetsPrefix: 'https://docs.callmap.app/'
+	  },
 });
