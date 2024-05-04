@@ -17,6 +17,6 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-
+    
     - name: Prettier check
-      run: npx prettier --check ./apps/web
+      run: npx -p . prettier --check ./apps/web
