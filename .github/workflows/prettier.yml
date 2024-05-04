@@ -17,6 +17,9 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-    
+   
+    - name: Install Prettier and plugin
+      run: npm install prettier prettier-plugin-tailwindcss
+
     - name: Prettier check
-      run: npx -p . prettier --check ./apps/web
+      run: npx prettier --check ./apps/web
