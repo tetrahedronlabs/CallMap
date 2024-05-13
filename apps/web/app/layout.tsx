@@ -1,4 +1,3 @@
-import { ThemeProvider } from '@/components/layout/theme-provider';
 import { Toaster } from '@/components/ui/sonner';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
@@ -18,15 +17,8 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body className={`${GeistSans.className} ${GeistMono.variable}`}>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="system"
-					enableSystem
-					disableTransitionOnChange
-				>
-					{children}
-					<Toaster />
-				</ThemeProvider>
+				{children}
+				<Toaster />
 			</body>
 		</html>
 	);
