@@ -38,7 +38,7 @@ export type Database = {
 			};
 			locations: {
 				Row: {
-					campus: string;
+					campus_id: string;
 					count: number | null;
 					latitude: number | null;
 					location: string;
@@ -46,7 +46,7 @@ export type Database = {
 					parsed_location: string;
 				};
 				Insert: {
-					campus: string;
+					campus_id: string;
 					count?: number | null;
 					latitude?: number | null;
 					location: string;
@@ -54,18 +54,26 @@ export type Database = {
 					parsed_location: string;
 				};
 				Update: {
-					campus?: string;
+					campus_id?: string;
 					count?: number | null;
 					latitude?: number | null;
 					location?: string;
 					longitude?: number | null;
 					parsed_location?: string;
 				};
-				Relationships: [];
+				Relationships: [
+					{
+						foreignKeyName: 'locations_campus_id_fkey';
+						columns: ['campus_id'];
+						isOneToOne: false;
+						referencedRelation: 'campuses';
+						referencedColumns: ['campus_id'];
+					},
+				];
 			};
 			records: {
 				Row: {
-					campus: string;
+					campus_id: string;
 					case_number: string | null;
 					date_occurred: string | null;
 					date_reported: string | null;
@@ -81,7 +89,7 @@ export type Database = {
 					time_occurred: string | null;
 				};
 				Insert: {
-					campus: string;
+					campus_id: string;
 					case_number?: string | null;
 					date_occurred?: string | null;
 					date_reported?: string | null;
@@ -97,7 +105,7 @@ export type Database = {
 					time_occurred?: string | null;
 				};
 				Update: {
-					campus?: string;
+					campus_id?: string;
 					case_number?: string | null;
 					date_occurred?: string | null;
 					date_reported?: string | null;
@@ -112,7 +120,15 @@ export type Database = {
 					summary?: string | null;
 					time_occurred?: string | null;
 				};
-				Relationships: [];
+				Relationships: [
+					{
+						foreignKeyName: 'records_campus_id_fkey';
+						columns: ['campus_id'];
+						isOneToOne: false;
+						referencedRelation: 'campuses';
+						referencedColumns: ['campus_id'];
+					},
+				];
 			};
 		};
 		Views: {
@@ -126,6 +142,10 @@ export type Database = {
 			days_parsed_count: {
 				Args: Record<PropertyKey, never>;
 				Returns: number;
+			};
+			get_min_date_parsed: {
+				Args: Record<PropertyKey, never>;
+				Returns: undefined;
 			};
 			random_ucsd: {
 				Args: Record<PropertyKey, never>;
