@@ -1,16 +1,10 @@
 import { supabase } from './supabase/client';
 
-export async function getRecord(
-	campusid: string,
-	locationid: string,
-	recordid: string
-) {
+export async function getRecord(departmentid: number	, recordid: string) {
 	const { data: record } = await supabase
 		.from('records')
 		.select()
-		.match({ campus: campusid })
-		.match({ parsed_location: locationid })
-		.match({ record_id: recordid })
+		.match({ department_id: departmentid, record_id: recordid })
 		.single();
 	if (!record) {
 		return null;

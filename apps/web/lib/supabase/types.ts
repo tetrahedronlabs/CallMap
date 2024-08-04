@@ -88,6 +88,7 @@ export type Database = {
 					parsed_location: string | null;
 					parsed_time_occurred: string | null;
 					record_id: string;
+					resource_id: string | null;
 					summary: string | null;
 					time_occurred: string | null;
 				};
@@ -104,6 +105,7 @@ export type Database = {
 					parsed_location?: string | null;
 					parsed_time_occurred?: string | null;
 					record_id: string;
+					resource_id?: string | null;
 					summary?: string | null;
 					time_occurred?: string | null;
 				};
@@ -120,6 +122,7 @@ export type Database = {
 					parsed_location?: string | null;
 					parsed_time_occurred?: string | null;
 					record_id?: string;
+					resource_id?: string | null;
 					summary?: string | null;
 					time_occurred?: string | null;
 				};
@@ -130,6 +133,13 @@ export type Database = {
 						isOneToOne: false;
 						referencedRelation: 'departments';
 						referencedColumns: ['department_id'];
+					},
+					{
+						foreignKeyName: 'records_resource_id_fkey';
+						columns: ['resource_id'];
+						isOneToOne: false;
+						referencedRelation: 'resources';
+						referencedColumns: ['resource_id'];
 					},
 				];
 			};

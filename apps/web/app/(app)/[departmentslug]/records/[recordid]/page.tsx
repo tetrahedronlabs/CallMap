@@ -2,13 +2,14 @@ import { SinglePointMap } from '@/components/maps/single-point';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { getRecord, getCoordinate } from '@/lib/record';
+import { getIdFromSlug } from '../../../../../lib/utils';
 
 export default async function Record({
-	params: { campusid, locationid, recordid },
+	params: { departmentslug, recordid },
 }: {
-	params: { campusid: string; locationid: string; recordid: string };
+	params: { departmentslug: string; recordid: string };
 }) {
-	const record = await getRecord(campusid, locationid, recordid);
+	const record = await getRecord(getIdFromSlug(departmentslug), recordid);
 	if (!record) {
 		return <div>Record not found</div>;
 	}

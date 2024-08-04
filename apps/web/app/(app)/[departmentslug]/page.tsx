@@ -10,11 +10,11 @@ import {
 } from 'lucide-react';
 
 export default async function Campus({
-	params: { departmentid },
+	params: { departmentslug },
 }: {
-	params: { departmentid: string };
+	params: { departmentslug: string };
 }) {
-	const department = await getDepartment(departmentid);
+	const department = await getDepartment(departmentslug);
 
 	if (!department) {
 		return <div>Campus not found</div>;
