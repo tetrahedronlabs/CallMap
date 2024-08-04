@@ -9,53 +9,56 @@ export type Json =
 export type Database = {
 	public: {
 		Tables: {
-			campuses: {
+			departments: {
 				Row: {
-					campus_id: string;
 					days_parsed: number;
+					department_id: number;
 					last_updated: string;
 					logo: string;
 					name: string;
 					record_count: number;
+					slug: string | null;
 				};
 				Insert: {
-					campus_id: string;
 					days_parsed: number;
+					department_id?: number;
 					last_updated: string;
 					logo: string;
 					name: string;
 					record_count: number;
+					slug?: string | null;
 				};
 				Update: {
-					campus_id?: string;
 					days_parsed?: number;
+					department_id?: number;
 					last_updated?: string;
 					logo?: string;
 					name?: string;
 					record_count?: number;
+					slug?: string | null;
 				};
 				Relationships: [];
 			};
 			locations: {
 				Row: {
-					campus_id: string;
 					count: number | null;
+					department_id: number;
 					latitude: number | null;
 					location: string;
 					longitude: number | null;
 					parsed_location: string;
 				};
 				Insert: {
-					campus_id: string;
 					count?: number | null;
+					department_id: number;
 					latitude?: number | null;
 					location: string;
 					longitude?: number | null;
 					parsed_location: string;
 				};
 				Update: {
-					campus_id?: string;
 					count?: number | null;
+					department_id?: number;
 					latitude?: number | null;
 					location?: string;
 					longitude?: number | null;
@@ -63,20 +66,20 @@ export type Database = {
 				};
 				Relationships: [
 					{
-						foreignKeyName: 'locations_campus_id_fkey';
-						columns: ['campus_id'];
+						foreignKeyName: 'locations_department_id_fkey';
+						columns: ['department_id'];
 						isOneToOne: false;
-						referencedRelation: 'campuses';
-						referencedColumns: ['campus_id'];
+						referencedRelation: 'departments';
+						referencedColumns: ['department_id'];
 					},
 				];
 			};
 			records: {
 				Row: {
-					campus_id: string;
 					case_number: string | null;
 					date_occurred: string | null;
 					date_reported: string | null;
+					department_id: number;
 					disposition: string | null;
 					incident: string | null;
 					location: string | null;
@@ -89,10 +92,10 @@ export type Database = {
 					time_occurred: string | null;
 				};
 				Insert: {
-					campus_id: string;
 					case_number?: string | null;
 					date_occurred?: string | null;
 					date_reported?: string | null;
+					department_id: number;
 					disposition?: string | null;
 					incident?: string | null;
 					location?: string | null;
@@ -105,10 +108,10 @@ export type Database = {
 					time_occurred?: string | null;
 				};
 				Update: {
-					campus_id?: string;
 					case_number?: string | null;
 					date_occurred?: string | null;
 					date_reported?: string | null;
+					department_id?: number;
 					disposition?: string | null;
 					incident?: string | null;
 					location?: string | null;
@@ -122,11 +125,40 @@ export type Database = {
 				};
 				Relationships: [
 					{
-						foreignKeyName: 'records_campus_id_fkey';
-						columns: ['campus_id'];
+						foreignKeyName: 'records_department_id_fkey';
+						columns: ['department_id'];
 						isOneToOne: false;
-						referencedRelation: 'campuses';
-						referencedColumns: ['campus_id'];
+						referencedRelation: 'departments';
+						referencedColumns: ['department_id'];
+					},
+				];
+			};
+			resources: {
+				Row: {
+					department_id: number | null;
+					file_name: string | null;
+					resource_id: string;
+					url: string | null;
+				};
+				Insert: {
+					department_id?: number | null;
+					file_name?: string | null;
+					resource_id: string;
+					url?: string | null;
+				};
+				Update: {
+					department_id?: number | null;
+					file_name?: string | null;
+					resource_id?: string;
+					url?: string | null;
+				};
+				Relationships: [
+					{
+						foreignKeyName: 'resources_department_id_fkey';
+						columns: ['department_id'];
+						isOneToOne: false;
+						referencedRelation: 'departments';
+						referencedColumns: ['department_id'];
 					},
 				];
 			};
