@@ -1,6 +1,6 @@
 import { supabase } from './supabase/client';
 
-export async function getRecord(departmentid: number	, recordid: string) {
+export async function getRecord(departmentid: number, recordid: string) {
 	const { data: record } = await supabase
 		.from('records')
 		.select()

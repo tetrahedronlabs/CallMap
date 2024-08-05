@@ -18,9 +18,9 @@ export default async function Record({
 	return (
 		<>
 			<div className="mx-auto flex h-screen max-w-screen-xl items-center justify-center">
-				<div className="mt-16 flex flex-col sm:flex-row sm:space-x-2">
-					<div className="max-sm:pb-1 sm:w-1/2">
-						<Card>
+				<div className="mt-16 flex w-full flex-col sm:flex-row sm:space-x-2">
+					<div className="w-full pb-1 sm:w-1/2">
+						<Card className="h-full">
 							<CardHeader>
 								<CardTitle className="flex items-center justify-between">
 									Record Details<Badge>UC San Diego</Badge>
@@ -35,7 +35,7 @@ export default async function Record({
 									value={record.date_reported}
 								/>
 								<div className="flex flex-col justify-center">
-									<h2 className="font-semibold">Date/Time Occured</h2>
+									<h2 className="font-semibold">Date/Time Occurred</h2>
 									<p className="font-mono">
 										{record.date_occurred} {record.time_occurred}
 									</p>
@@ -45,21 +45,23 @@ export default async function Record({
 							</CardContent>
 						</Card>
 					</div>
-					{location?.longitude && location?.latitude ? (
-						<Card className="flex grow">
-							<SinglePointMap
-								latitude={location!.latitude!}
-								longitude={location!.longitude!}
-								zoom={15.5}
-							/>
-						</Card>
-					) : (
-						<Card className="flex flex-grow items-center justify-center">
-							<p className="text-lg font-semibold">
-								No coordinate data available.
-							</p>
-						</Card>
-					)}
+					<div className="w-full pb-1 sm:w-1/2">
+						{location?.longitude && location?.latitude ? (
+							<Card className="flex h-full">
+								<SinglePointMap
+									latitude={location!.latitude!}
+									longitude={location!.longitude!}
+									zoom={15.5}
+								/>
+							</Card>
+						) : (
+							<Card className="flex h-full items-center justify-center">
+								<p className="text-lg font-semibold">
+									No coordinate data available.
+								</p>
+							</Card>
+						)}
+					</div>
 				</div>
 			</div>
 		</>

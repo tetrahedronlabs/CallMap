@@ -39,6 +39,32 @@ export type Database = {
 				};
 				Relationships: [];
 			};
+			files: {
+				Row: {
+					department_id: number | null;
+					file_id: string;
+					file_name: string | null;
+				};
+				Insert: {
+					department_id?: number | null;
+					file_id: string;
+					file_name?: string | null;
+				};
+				Update: {
+					department_id?: number | null;
+					file_id?: string;
+					file_name?: string | null;
+				};
+				Relationships: [
+					{
+						foreignKeyName: 'resources_department_id_fkey';
+						columns: ['department_id'];
+						isOneToOne: false;
+						referencedRelation: 'departments';
+						referencedColumns: ['department_id'];
+					},
+				];
+			};
 			locations: {
 				Row: {
 					count: number | null;
@@ -81,6 +107,7 @@ export type Database = {
 					date_reported: string | null;
 					department_id: number;
 					disposition: string | null;
+					file_id: string | null;
 					incident: string | null;
 					location: string | null;
 					parsed_date_occurred: string | null;
@@ -88,7 +115,6 @@ export type Database = {
 					parsed_location: string | null;
 					parsed_time_occurred: string | null;
 					record_id: string;
-					resource_id: string | null;
 					summary: string | null;
 					time_occurred: string | null;
 				};
@@ -98,6 +124,7 @@ export type Database = {
 					date_reported?: string | null;
 					department_id: number;
 					disposition?: string | null;
+					file_id?: string | null;
 					incident?: string | null;
 					location?: string | null;
 					parsed_date_occurred?: string | null;
@@ -105,7 +132,6 @@ export type Database = {
 					parsed_location?: string | null;
 					parsed_time_occurred?: string | null;
 					record_id: string;
-					resource_id?: string | null;
 					summary?: string | null;
 					time_occurred?: string | null;
 				};
@@ -115,6 +141,7 @@ export type Database = {
 					date_reported?: string | null;
 					department_id?: number;
 					disposition?: string | null;
+					file_id?: string | null;
 					incident?: string | null;
 					location?: string | null;
 					parsed_date_occurred?: string | null;
@@ -122,7 +149,6 @@ export type Database = {
 					parsed_location?: string | null;
 					parsed_time_occurred?: string | null;
 					record_id?: string;
-					resource_id?: string | null;
 					summary?: string | null;
 					time_occurred?: string | null;
 				};
@@ -135,40 +161,11 @@ export type Database = {
 						referencedColumns: ['department_id'];
 					},
 					{
-						foreignKeyName: 'records_resource_id_fkey';
-						columns: ['resource_id'];
+						foreignKeyName: 'records_file_id_fkey';
+						columns: ['file_id'];
 						isOneToOne: false;
-						referencedRelation: 'resources';
-						referencedColumns: ['resource_id'];
-					},
-				];
-			};
-			resources: {
-				Row: {
-					department_id: number | null;
-					file_name: string | null;
-					resource_id: string;
-					url: string | null;
-				};
-				Insert: {
-					department_id?: number | null;
-					file_name?: string | null;
-					resource_id: string;
-					url?: string | null;
-				};
-				Update: {
-					department_id?: number | null;
-					file_name?: string | null;
-					resource_id?: string;
-					url?: string | null;
-				};
-				Relationships: [
-					{
-						foreignKeyName: 'resources_department_id_fkey';
-						columns: ['department_id'];
-						isOneToOne: false;
-						referencedRelation: 'departments';
-						referencedColumns: ['department_id'];
+						referencedRelation: 'files';
+						referencedColumns: ['file_id'];
 					},
 				];
 			};
@@ -189,7 +186,7 @@ export type Database = {
 				Args: Record<PropertyKey, never>;
 				Returns: undefined;
 			};
-			random_ucsd: {
+			random_record: {
 				Args: Record<PropertyKey, never>;
 				Returns: string;
 			};
