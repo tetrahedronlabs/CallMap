@@ -3,6 +3,7 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { getRecord, getCoordinate } from '@/lib/record';
 import { getIdFromSlug } from '../../../../../lib/utils';
+import { notFound } from 'next/navigation';
 
 export default async function Record({
 	params: { departmentslug, recordid },
@@ -11,7 +12,7 @@ export default async function Record({
 }) {
 	const record = await getRecord(getIdFromSlug(departmentslug), recordid);
 	if (!record) {
-		return <div>Record not found</div>;
+		return notFound();
 	}
 	const location = await getCoordinate(record!.parsed_location!);
 	return (
